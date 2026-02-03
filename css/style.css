@@ -1,18 +1,18 @@
+   /* Reset and Base Mobile */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-
 body {
     background-color: #0f172a;
     color: #e2e8f0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
     min-height: 100vh;
-    padding-top: 80px;
+    padding-top: 70px; /* Space for fixed header, smaller on mobile */
 }
-
+/* Header and Nav Mobile */
 header {
     position: fixed;
     top: 0;
@@ -23,45 +23,40 @@ header {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     z-index: 1000;
 }
-
 nav ul {
     list-style: none;
     display: flex;
     justify-content: center;
-    gap: 10px;
-    padding: 15px 20px;
+    gap: 5px; /* Smaller gap on mobile */
+    padding: 10px 15px;
     flex-wrap: wrap;
 }
-
 nav li {
     display: inline-block;
 }
-
 nav a {
     display: inline-block;
-    padding: 10px 20px;
+    padding: 8px 12px; /* Smaller padding on mobile */
     color: #e2e8f0;
     text-decoration: none;
     font-weight: 600;
-    font-size: 0.95rem;
+    font-size: 0.85rem; /* Smaller font on mobile */
     border-radius: 6px;
     transition: all 0.3s ease;
 }
-
 nav a:hover {
     background-color: #10b981;
     color: #0f172a;
 }
-
+/* Main Mobile */
 main {
-    padding: 40px 20px;
+    padding: 20px 15px; /* Smaller padding on mobile */
 }
-
 h1 {
-    font-size: 3.5rem;
+    font-size: 2rem; /* Smaller on mobile */
     font-weight: 800;
     text-align: center;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
     background: linear-gradient(135deg, #10b981, #06b6d4, #10b981);
     background-size: 200% 200%;
     -webkit-background-clip: text;
@@ -70,7 +65,119 @@ h1 {
     animation: gradient-shift 4s ease-in-out infinite;
     letter-spacing: -1px;
 }
-
+/* Section Mobile */
+section {
+    max-width: 100%; /* Full width on mobile */
+    margin: 0 auto 25px auto;
+    padding: 20px; /* Smaller padding on mobile */
+    background-color: #1e293b;
+    border-radius: 12px;
+    border: 1px solid #334155;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+section:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 32px rgba(16, 185, 129, 0.15);
+    border-color: rgba(16, 185, 129, 0.4);
+}
+h2 {
+    font-size: 1.25rem; /* Smaller on mobile */
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #10b981;
+    display: inline-block;
+}
+#About {
+    text-align: center;
+}
+#About p {
+    font-size: 1rem; /* Slightly smaller on mobile */
+    color: #94a3b8;
+}
+#Skills {
+    min-height: 80px;
+}
+#Projects ul {
+    list-style: none;
+    min-height: 50px;
+}
+/* Experience Section Mobile (Grid)
+   Changed from flexbox to CSS Grid */
+.experience-list {
+    display: grid;
+    grid-template-columns: 1fr; /* Single column on mobile */
+    gap: 15px;
+}
+.experience-item {
+    background-color: #0f172a;
+    padding: 15px 20px; /* Smaller padding on mobile */
+    border-radius: 8px;
+    border-left: 4px solid #10b981;
+    transition: all 0.3s ease;
+}
+.experience-item:hover {
+    background-color: #1a2744;
+    transform: translateX(8px);
+    border-left-color: #06b6d4;
+}
+.experience-header {
+    display: flex;
+    flex-direction: column; /* Stack vertically on mobile */
+    align-items: flex-start;
+    gap: 5px;
+    margin-bottom: 10px;
+}
+.job-title {
+    font-weight: 700;
+    font-size: 1rem; /* Slightly smaller on mobile */
+    color: #ffffff;
+}
+.job-date {
+    font-size: 0.85rem;
+    color: #10b981;
+    font-weight: 600;
+}
+.job-description {
+    color: #94a3b8;
+    font-size: 0.9rem; /* Smaller on mobile */
+}
+/* Connect Section Mobile */
+#Connect {
+    text-align: center;
+}
+.connect-links {
+    display: flex;
+    flex-direction: column; /* Stack vertically on mobile */
+    align-items: center;
+    gap: 15px;
+}
+.connect-links a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    width: 180px; /* Fixed width on mobile */
+    justify-content: center;
+    background-color: #334155;
+    color: #e2e8f0;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    border: 1px solid #475569;
+}
+.connect-links a:hover {
+    background-color: #10b981;
+    color: #0f172a;
+    transform: scale(1.05);
+    box-shadow: 0 0 25px rgba(16, 185, 129, 0.4);
+    border-color: #10b981;
+}
+/* Animations */
 @keyframes gradient-shift {
     0%, 100% {
         background-position: 0% 50%;
@@ -79,162 +186,186 @@ h1 {
         background-position: 100% 50%;
     }
 }
-
-section {
-    max-width: 700px;
-    margin: 0 auto 40px auto;
-    padding: 30px;
-    background-color: #1e293b;
-    border-radius: 12px;
-    border: 1px solid #334155;
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-section:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 32px rgba(16, 185, 129, 0.15);
-    border-color: rgba(16, 185, 129, 0.4);
-}
-
-h2 {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: #ffffff;
-    margin-bottom: 20px;
-    padding-bottom: 10px;
-    border-bottom: 2px solid #10b981;
-    display: inline-block;
-}
-
-#About {
-    text-align: center;
-}
-
-#About p {
-    font-size: 1.1rem;
-    color: #94a3b8;
-}
-
-.experience-list {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.experience-item {
-    background-color: #0f172a;
-    padding: 20px 25px;
-    border-radius: 8px;
-    border-left: 4px solid #10b981;
-    transition: all 0.3s ease;
-}
-
-.experience-item:hover {
-    background-color: #1a2744;
-    transform: translateX(8px);
-    border-left-color: #06b6d4;
-}
-
-.experience-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-bottom: 10px;
-}
-
-.job-title {
-    font-weight: 700;
-    font-size: 1.1rem;
-    color: #ffffff;
-}
-
-.job-date {
-    font-size: 0.9rem;
-    color: #10b981;
-    font-weight: 600;
-}
-
-.job-description {
-    color: #94a3b8;
-    font-size: 0.95rem;
-}
-
-#Skills {
-    min-height: 100px;
-}
-
-#Projects ul {
-    list-style: none;
-    min-height: 50px;
-}
-
-#Connect {
-    text-align: center;
-}
-
-.connect-links {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-}
-
-.connect-links a {
-    display: inline-block;
-    padding: 14px 32px;
-    background-color: #334155;
-    color: #e2e8f0;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 1rem;
-    border-radius: 8px;
-    transition: all 0.3s ease;
-    border: 1px solid #475569;
-}
-
-.connect-links a:hover {
-    background-color: #10b981;
-    color: #0f172a;
-    transform: scale(1.05);
-    box-shadow: 0 0 25px rgba(16, 185, 129, 0.4);
-    border-color: #10b981;
-}
-
-@media (max-width: 600px) {
-    h1 {
-        font-size: 2.5rem;
+/* 
+     Tablet (min-width: 768px)
+   Changes from mobile:
+   - Navigation: larger padding, bigger gap, larger font
+   - H1: larger font size, more margin
+   - Sections: increased max-width, more padding
+   - Experience grid: 2 columns instead of 1
+   - Experience items: larger padding, horizontal header layout
+   - Connect links: horizontal layout, larger buttons */
+@media (min-width: 768px) {
+    
+    /* more padding for header */
+    body {
+        padding-top: 80px;
     }
-
+    
+    /* larger and more spacious */
+    nav ul {
+        gap: 10px;
+        padding: 15px 20px;
+    }
+    
+    nav a {
+        padding: 10px 18px;
+        font-size: 0.9rem;
+    }
+    
+    /* more padding */
+    main {
+        padding: 30px 25px;
+    }
+    
+    /* larger font and margin */
+    h1 {
+        font-size: 2.8rem;
+        margin-bottom: 40px;
+    }
+    
+    /* constrained width, more padding */
     section {
-        padding: 20px;
+        max-width: 650px;
+        padding: 25px;
+        margin-bottom: 30px;
+    }
+    
+    /* larger font */
+    h2 {
+        font-size: 1.4rem;
+        margin-bottom: 20px;
+    }
+    
+    /* larger */
+    #About p {
+        font-size: 1.05rem;
+    }
+    
+    /* 2 columns on tablet */
+    .experience-list {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+    
+    .experience-item {
+        padding: 18px 22px;
+    }
+    
+    /* horizontal layout */
+    .experience-header {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+    }
+    
+    .job-title {
+        font-size: 1.05rem;
+    }
+    
+    .job-description {
+        font-size: 0.95rem;
+    }
+    
+    /* horizontal layout */
+    .connect-links {
+        flex-direction: row;
+        justify-content: center;
+        gap: 20px;
+    }
+    
+    .connect-links a {
+        width: auto;
+        padding: 14px 28px;
+        font-size: 1rem;
+    }
+}
+/* 
+     Desktop (min-width: 1024px)
+   Changes from tablet:
+   - Navigation: even larger padding and gaps
+   - H1: largest font size, most margin
+   - Sections: maximum width, largest padding
+   - Experience grid: still 2 columns but more gap
+   - Experience items: largest padding
+   - Connect links: largest buttons, more gap */
+@media (min-width: 1024px) {
+    
+    /* largest header space */
+    body {
+        padding-top: 90px;
+    }
+    
+    /* largest and most spacious */
+    nav ul {
+        gap: 15px;
+        padding: 18px 30px;
+    }
+    
+    nav a {
+        padding: 12px 24px;
+        font-size: 0.95rem;
+    }
+    
+    /* largest padding */
+    main {
+        padding: 40px 30px;
+    }
+    
+    /* largest font and margin */
+    h1 {
+        font-size: 3.5rem;
+        margin-bottom: 50px;
+    }
+    
+    /* maximum width, largest padding */
+    section {
+        max-width: 800px;
+        padding: 35px;
+        margin-bottom: 40px;
+    }
+    
+    /* largest font */
+    h2 {
+        font-size: 1.6rem;
         margin-bottom: 25px;
     }
-
-    nav ul {
-        gap: 5px;
-        padding: 10px 15px;
+    
+    /* About paragraph, largest */
+    #About p {
+        font-size: 1.15rem;
     }
-
-    nav a {
-        padding: 8px 12px;
-        font-size: 0.85rem;
+    
+    /* 2 columns with more gap */
+    .experience-list {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
     }
-
-    .experience-header {
-        flex-direction: column;
-        align-items: flex-start;
+    
+    .experience-item {
+        padding: 22px 28px;
     }
-
+    
+    .job-title {
+        font-size: 1.1rem;
+    }
+    
+    .job-date {
+        font-size: 0.9rem;
+    }
+    
+    .job-description {
+        font-size: 1rem;
+    }
+    
+    /* largest buttons */
     .connect-links {
-        flex-direction: column;
-        align-items: center;
+        gap: 25px;
     }
-
+    
     .connect-links a {
-        width: 200px;
-        text-align: center;
+        padding: 16px 36px;
+        font-size: 1.05rem;
     }
 }
