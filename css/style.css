@@ -18,6 +18,7 @@ header {
     top: 0;
     left: 0;
     right: 0;
+    width: 100%;
     background-color: #1e293b;
     border-bottom: 1px solid #334155;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
@@ -99,6 +100,34 @@ h2 {
 }
 #Skills {
     min-height: 80px;
+}
+#Skills ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+#Skills ul li {
+    background-color: #334155;
+    color: #10b981;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    border: 1px solid #475569;
+    transition: all 0.3s ease;
+}
+#Skills ul li:hover {
+    background-color: #10b981;
+    color: #0f172a;
+}
+footer {
+    text-align: center;
+    padding: 20px;
+    color: #94a3b8;
+    font-size: 0.9rem;
+    border-top: 1px solid #334155;
+    margin-top: 30px;
 }
 #Projects ul {
     list-style: none;
