@@ -206,6 +206,170 @@ footer {
     box-shadow: 0 0 25px rgba(16, 185, 129, 0.4);
     border-color: #10b981;
 }
+
+/* Message form styles */
+#leave-message form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Input group - floating label container */
+.input-group {
+    position: relative;
+}
+
+.input-group input,
+.input-group textarea {
+    width: 100%;
+    padding: 16px 14px 8px 14px;
+    background-color: #0f172a;
+    color: #e2e8f0;
+    border: 1px solid #475569;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.input-group textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+/* Floating label - resting state (acts as placeholder) */
+.input-group label {
+    position: absolute;
+    left: 14px;
+    top: 12px;
+    color: #94a3b8;
+    font-size: 1rem;
+    font-weight: 600;
+    pointer-events: none;
+    transition: all 0.2s ease;
+}
+
+/* Floating label - active state (on focus or when field has content) */
+.input-group input:focus + label,
+.input-group input:not(:placeholder-shown) + label,
+.input-group textarea:focus + label,
+.input-group textarea:not(:placeholder-shown) + label {
+    top: 4px;
+    font-size: 0.7rem;
+    color: #10b981;
+}
+
+/* Green border on focus */
+.input-group input:focus,
+.input-group textarea:focus {
+    outline: none;
+    border-color: #10b981;
+    box-shadow: 0 0 8px rgba(16, 185, 129, 0.25);
+}
+
+#leave-message button[type="submit"] {
+    margin-top: 5px;
+    padding: 12px 28px;
+    background-color: #10b981;
+    color: #0f172a;
+    border: none;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    align-self: flex-start;
+}
+
+#leave-message button[type="submit"]:hover {
+    background-color: #06b6d4;
+    transform: scale(1.03);
+    box-shadow: 0 0 15px rgba(16, 185, 129, 0.4);
+}
+
+/* Form error styles */
+.input-group input.input-error,
+.input-group textarea.input-error {
+    border-color: #ef4444;
+    box-shadow: 0 0 8px rgba(239, 68, 68, 0.25);
+}
+
+/* Red label when input has error and is not focused */
+.input-group input.input-error + label,
+.input-group textarea.input-error + label {
+    color: #ef4444;
+}
+
+/* Green label wins when focused, even with error */
+.input-group input.input-error:focus + label,
+.input-group textarea.input-error:focus + label {
+    color: #10b981;
+}
+
+.input-group .error-message {
+    color: #ef4444;
+    font-size: 0.85rem;
+    margin-top: 4px;
+}
+
+/* Messages list styles */
+#messages ul {
+    list-style: none;
+}
+
+/* Hide messages section when the list is empty */
+#messages:has(ul:empty) {
+    display: none;
+}
+
+#messages ul li {
+    background-color: #0f172a;
+    padding: 14px 18px;
+    border-radius: 8px;
+    border-left: 4px solid #10b981;
+    margin-bottom: 12px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+}
+
+#messages ul li a {
+    color: #10b981;
+    font-weight: 700;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+#messages ul li a:hover {
+    color: #06b6d4;
+}
+
+#messages ul li span {
+    color: #94a3b8;
+    flex: 1;
+}
+
+#messages ul li button {
+    padding: 6px 14px;
+    border: 1px solid #475569;
+    border-radius: 6px;
+    background-color: #334155;
+    color: #e2e8f0;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 44px;
+    min-height: 44px;
+}
+
+#messages ul li button:hover {
+    background-color: #10b981;
+    color: #0f172a;
+    border-color: #10b981;
+}
+
 /* Animations */
 @keyframes gradient-shift {
     0%, 100% {
@@ -215,6 +379,7 @@ footer {
         background-position: 100% 50%;
     }
 }
+
 /* 
      Tablet (min-width: 768px)
    Changes from mobile:
@@ -309,7 +474,21 @@ footer {
         padding: 14px 28px;
         font-size: 1rem;
     }
+
+    .input-group input,
+    .input-group textarea {
+        padding: 18px 16px 10px 16px;
+    }
+
+    .input-group label {
+        left: 16px;
+    }
+
+    #leave-message button[type="submit"] {
+        padding: 14px 32px;
+    }
 }
+
 /* 
      Desktop (min-width: 1024px)
    Changes from tablet:
