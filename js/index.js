@@ -41,7 +41,48 @@ for (var i = 0; i < skills.length; i++) {
     skillsList.appendChild(skill);
 }
 
-// ========== Message Form Handling ==========
+// Using the Fetch API
+fetch("https://api.github.com/users/aqn3056/repos")
+    .then(function(response) {
+        return response.json();
+    })
+    .then(function(data) {
+        // Store the parsed response in a variable named repositories
+        var repositories = data;
+
+        // Display value of repositories
+        console.log(repositories);
+
+        // Select the projects section by id
+        var projectSection = document.getElementById("Projects");
+
+        // Query the projectSection to select the <ul> element
+        var projectList = projectSection.querySelector("ul");
+
+        // Loop through the repositories array
+        for (var i = 0; i < repositories.length; i++) {
+            // Create a new list item element
+            var project = document.createElement("li");
+
+            // Set the innerHTML with a link that opens the GitHub repo in a new tab
+            project.innerHTML = '<a href="' + repositories[i].html_url + '" target="_blank">' + repositories[i].name + '</a>';
+
+            // Append the project element to the projectList
+            projectList.appendChild(project);
+        }
+    })
+    .catch(function(error) {
+        console.error("Failed to fetch repositories:", error);
+
+        // Let the user know the Projects section is empty due to an error
+        var projectSection = document.getElementById("Projects");
+        var errorMsg = document.createElement("p");
+        errorMsg.textContent = "Unable to load repositories at this time. Please try again later.";
+        errorMsg.style.color = "#ef4444";
+        projectSection.appendChild(errorMsg);
+    });
+
+// Message form handling
 
 // Select the leave_message form by name attribute
 var messageForm = document.querySelector('[name="leave_message"]');
